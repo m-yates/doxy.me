@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useAppStore } from "../hooks/use-app-store";
 import { ANIMATION_STATE, TOGGLE_CONTROLS } from "../lib/animations";
 import { cn } from "../lib/utils";
 
@@ -8,10 +9,17 @@ interface Props {
 }
 
 export default function Controls({ children, className }: Props) {
+  const { setHasVideo } = useAppStore();
+
   return (
     <motion.div
       {...ANIMATION_STATE}
       variants={TOGGLE_CONTROLS}
+      onAnimationComplete={(definition) => {
+        if (definition === "exit") {
+          setHasVideo(true);
+        }
+      }}
       className={cn(
         "bg-grey-200 mx-auto flex items-center justify-center gap-2 rounded-lg p-2",
         className

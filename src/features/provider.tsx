@@ -1,3 +1,4 @@
+import Appearance from "../components/appearance";
 import Audio from "../components/audio";
 import Controls from "../components/controls";
 import Dashboard from "../components/dashboard";
@@ -11,6 +12,7 @@ export default function Patient() {
       <Video />
       <Audio />
       <Dashboard />
+      <Appearance />
       <Options />
       <HangUp />
     </Controls>

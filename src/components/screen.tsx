@@ -1,30 +1,32 @@
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useAppStore } from "../hooks/use-app-store";
 import { ANIMATION_STATE, TOGGLE_SCREEN } from "../lib/animations";
 import { cn } from "../lib/utils";
 
-interface Props {
+interface ScreenProps {
   className?: string;
 }
 
-export default function Screen({ className }: Props) {
-  const { currentUser } = useAppStore();
+export default function Screen({ className }: ScreenProps) {
+  const { hasVideo } = useAppStore();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      {currentUser && (
-        <motion.div
-          key="screen"
-          {...ANIMATION_STATE}
-          variants={TOGGLE_SCREEN}
-          className={cn(
-            "bg-grey-200 mx-auto max-w-[1000px] flex-1 overflow-hidden rounded-lg",
-            className
-          )}
-        >
-          <img src="/screen.jpg" alt="screen" className="size-full object-cover" />
-        </motion.div>
+    <motion.div
+      key="screen"
+      {...ANIMATION_STATE}
+      variants={TOGGLE_SCREEN}
+      className={cn(
+        "bg-grey-200 grid-pile mx-auto max-w-[1000px] overflow-hidden rounded-lg",
+        className
       )}
-    </AnimatePresence>
+    >
+      <motion.img
+        animate={hasVideo ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        src="/screen.jpg"
+        alt="screen"
+        className="size-full object-cover opacity-0"
+      />
+    </motion.div>
   );
 }
