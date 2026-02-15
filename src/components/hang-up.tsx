@@ -10,9 +10,13 @@ interface Props {
 export default function HangUp({ className }: Props) {
   const { setCurrentUser } = useAppStore();
 
+  function handleClick() {
+    setCurrentUser(null);
+  }
+
   return (
     <div className={cn("", className)}>
-      <Button onClick={() => setCurrentUser(null)} className="bg-red hover:bg-red">
+      <Button onClick={handleClick} className="bg-red hover:bg-red">
         <Phone className="rotate-135" />
       </Button>
     </div>

@@ -11,15 +11,17 @@ interface Props {
 export default function Controls({ children, className }: Props) {
   const { setHasVideo } = useAppStore();
 
+  function handleAnimationComplete(definition: string) {
+    if (definition === "exit") {
+      setHasVideo(true);
+    }
+  }
+
   return (
     <motion.div
       {...ANIMATION_STATE}
       variants={TOGGLE_CONTROLS}
-      onAnimationComplete={(definition) => {
-        if (definition === "exit") {
-          setHasVideo(true);
-        }
-      }}
+      onAnimationComplete={handleAnimationComplete}
       className={cn(
         "bg-grey-200 mx-auto flex items-center justify-center gap-2 rounded-lg p-2",
         className

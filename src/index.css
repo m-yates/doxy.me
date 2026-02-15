@@ -13,13 +13,3 @@
     color: var(--color-white);
   }
 }
-
-@layer components {
-  .grid-pile {
-    display: grid;
-  }
-
-  .grid-pile > * {
-    grid-area: 1 / 1;
-  }
-}
