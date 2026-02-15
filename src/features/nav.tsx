@@ -1,31 +1,28 @@
+import { useAppStore } from "../hooks/use-app-store";
 import { USERS } from "../lib/constants";
 import { cn } from "../lib/utils";
 
 interface Props {
-  currentUser: string;
-  setCurrentUser: React.Dispatch<React.SetStateAction<string>>;
   className?: string;
 }
 
-export default function Nav({ currentUser, setCurrentUser, className }: Props) {
-  function handleChangeUser(user: string) {
-    setCurrentUser(user);
-  }
+export default function Nav({ className }: Props) {
+  const { currentUser, setCurrentUser } = useAppStore();
+
   return (
-    <nav
-      className={cn(
-        "fixed top-0 right-0 left-0 flex items-center justify-end gap-5 p-4 text-black",
-        className
-      )}
-    >
-      <h1 className="mr-auto font-bold">Doxy.me</h1>
+    <nav className={cn("flex items-center justify-end gap-5", className)}>
+      <button onClick={() => setCurrentUser(null)} className="mr-auto cursor-pointer font-bold">
+        Doxy.me
+      </button>
       {USERS.map((user) => (
         <button
           key={user}
-          onClick={() => handleChangeUser(user)}
+          onClick={() => setCurrentUser(user)}
           className={cn(
-            "cursor-pointer text-sm tracking-wide underline-offset-4",
-            user === currentUser && "underline"
+            "relative cursor-pointer text-sm tracking-wide underline-offset-4",
+            "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:transition-transform after:duration-200 after:ease-out",
+            "after:origin-center after:content-['']",
+            user === currentUser ? "after:scale-x-100" : "after:scale-x-0"
           )}
         >
           {user.toUpperCase()}
