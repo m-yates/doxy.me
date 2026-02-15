@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-black: #1a1a1a;
+  --color-grey: #2d2d2d;
+  --color-white: #ffffff;
+  --color-red: #ef4444;
+}
+
+@layer base {
+  body {
+    color: var(--color-white);
+  }
+}
+
+@layer components {
+  .grid-pile {
+    display: grid;
+  }
+
+  .grid-pile > * {
+    grid-area: 1 / 1;
+  }
+}
