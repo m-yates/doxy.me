@@ -44,7 +44,7 @@ export const CONTROLS: Variants = {
   }
 };
 
-export const ICON: Variants = {
+export const CONTROL: Variants = {
   initial: { scale: 0, opacity: 0, y: "50%" },
   animate: {
     scale: 1,
@@ -55,8 +55,14 @@ export const ICON: Variants = {
   exit: { scale: 0, opacity: 0, y: "50%", transition: { duration: DURATION_SLOW, ease: EASE_EXIT } }
 };
 
-export const ICON_TOGGLE: Variants = {
+export const ICON: Variants = {
   initial: { opacity: 0, y: "75%" },
   animate: { opacity: 1, y: 0, transition: { duration: DURATION_FAST, ease: EASE_ANIMATE } },
   exit: { opacity: 0, y: "-75%", transition: { duration: DURATION_FAST, ease: EASE_EXIT } }
+};
+
+export const MENU: Variants = {
+  initial: { opacity: 0, scale: 0 },
+  animate: { opacity: 1, scale: 1, transition: { duration: DURATION_MEDIUM, ease: EASE_ANIMATE } },
+  exit: { opacity: 0, scale: 0, transition: { duration: DURATION_MEDIUM, ease: EASE_EXIT } }
 };

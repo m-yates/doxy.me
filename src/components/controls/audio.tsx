@@ -1,7 +1,7 @@
 import { Mic, MicOff } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../../lib/utils";
-import ControlItem from "../control-item";
+import Control from "../control";
 import ToggleButton from "../toggle-button";
 
 interface Props {
@@ -16,13 +16,13 @@ export default function Audio({ className }: Props) {
   }
 
   return (
-    <ControlItem className={cn("", className)}>
+    <Control className={cn("", className)}>
       <ToggleButton
         onClick={handleClick}
         isActive={hasAudio}
         activeIcon={<Mic />}
         inactiveIcon={<MicOff />}
       />
-    </ControlItem>
+    </Control>
   );
 }

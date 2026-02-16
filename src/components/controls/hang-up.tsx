@@ -2,7 +2,7 @@ import { Phone } from "lucide-react";
 import { useAppStore } from "../../hooks/use-app-store";
 import { cn } from "../../lib/utils";
 import Button from "../button";
-import ControlItem from "../control-item";
+import Control from "../control";
 
 interface Props {
   className?: string;
@@ -16,10 +16,10 @@ export default function HangUp({ className }: Props) {
   }
 
   return (
-    <ControlItem className={cn("", className)}>
+    <Control className={cn("", className)}>
       <Button onClick={handleClick} className="bg-red hover:bg-red">
         <Phone className="rotate-135" />
       </Button>
-    </ControlItem>
+    </Control>
   );
 }

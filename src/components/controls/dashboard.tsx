@@ -1,7 +1,7 @@
 import { LayoutGrid } from "lucide-react";
 import { cn } from "../../lib/utils";
 import Button from "../button";
-import ControlItem from "../control-item";
+import Control from "../control";
 
 interface Props {
   children?: React.ReactNode;
@@ -10,10 +10,10 @@ interface Props {
 
 export default function Dashboard({ className }: Props) {
   return (
-    <ControlItem className={cn("", className)}>
+    <Control className={cn("", className)}>
       <Button onClick={() => console.log("clicked")}>
         <LayoutGrid />
       </Button>
-    </ControlItem>
+    </Control>
   );
 }

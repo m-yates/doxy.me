@@ -1,7 +1,7 @@
 import { VideoOff, Video as VideoOnIcon } from "lucide-react";
 import { useAppStore } from "../../hooks/use-app-store";
 import { cn } from "../../lib/utils";
-import ControlItem from "../control-item";
+import Control from "../control";
 import ToggleButton from "../toggle-button";
 
 interface Props {
@@ -16,13 +16,13 @@ export default function Video({ className }: Props) {
   }
 
   return (
-    <ControlItem className={cn("", className)}>
+    <Control className={cn("", className)}>
       <ToggleButton
         onClick={handleClick}
         isActive={hasVideo}
         activeIcon={<VideoOnIcon />}
         inactiveIcon={<VideoOff />}
       />
-    </ControlItem>
+    </Control>
   );
 }
