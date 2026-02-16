@@ -1,6 +1,6 @@
 import { VideoOff, Video as VideoOnIcon } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import { useAppStore } from "../../hooks/use-app-store";
+import { useMenu } from "../../hooks/use-menu";
 import { cn } from "../../lib/utils";
 import Button from "../button";
 import Control from "../control";
@@ -16,34 +16,11 @@ const MENU_ITEMS = ["Background", "Quality"];
 
 export default function Video({ className }: Props) {
   const { hasVideo, setHasVideo } = useAppStore();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isOpen, setIsOpen, containerRef } = useMenu();
 
   function handleClick() {
     setHasVideo(!hasVideo);
   }
-
-  useEffect(() => {
-    if (!isMenuOpen) return;
-
-    function handleClickOutside(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setIsMenuOpen(false);
-      }
-    }
-
-    function handleEscape(e: KeyboardEvent) {
-      if (e.key === "Escape") setIsMenuOpen(false);
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [isMenuOpen]);
 
   return (
     <Control ref={containerRef} className={cn("group flex items-center rounded-lg", className)}>
@@ -56,14 +33,14 @@ export default function Video({ className }: Props) {
       />
       <MenuButton
         title="Video settings"
-        isOpen={isMenuOpen}
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        isOpen={isOpen}
+        onClick={() => setIsOpen((prev) => !prev)}
       />
-      <Menu isOpen={isMenuOpen}>
+      <Menu isOpen={isOpen}>
         {MENU_ITEMS.map((item) => (
           <Button
             title={item}
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => setIsOpen(false)}
             key={item}
             className="size-auto p-2"
           >

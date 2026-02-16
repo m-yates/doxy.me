@@ -1,5 +1,5 @@
 import { EllipsisVertical } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useMenu } from "../../hooks/use-menu";
 import { cn } from "../../lib/utils";
 import Button from "../button";
 import Control from "../control";
@@ -13,41 +13,18 @@ interface Props {
 const MENU_ITEMS = ["Settings", "Help", "Leave"];
 
 export default function Options({ className }: Props) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (!isMenuOpen) return;
-
-    function handleClickOutside(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setIsMenuOpen(false);
-      }
-    }
-
-    function handleEscape(e: KeyboardEvent) {
-      if (e.key === "Escape") setIsMenuOpen(false);
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [isMenuOpen]);
+  const { isOpen, setIsOpen, containerRef } = useMenu();
 
   return (
     <Control ref={containerRef} className={cn("", className)}>
-      <Button title="Options" onClick={() => setIsMenuOpen((prev) => !prev)}>
+      <Button title="Options" onClick={() => setIsOpen((prev) => !prev)}>
         <EllipsisVertical />
       </Button>
-      <Menu isOpen={isMenuOpen}>
+      <Menu isOpen={isOpen}>
         {MENU_ITEMS.map((item) => (
           <Button
             title={item}
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => setIsOpen(false)}
             key={item}
             className="size-auto p-2"
           >
