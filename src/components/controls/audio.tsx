@@ -19,19 +19,7 @@ export default function Audio({ className }: Props) {
   const { isOpen, setIsOpen, containerRef } = useMenu();
 
   return (
-    <Control ref={containerRef} className={cn("group flex items-center rounded-lg", className)}>
-      <ToggleButton
-        title="Toggle audio"
-        onClick={() => setHasAudio((prev) => !prev)}
-        isActive={hasAudio}
-        activeIcon={<Mic />}
-        inactiveIcon={<MicOff />}
-      />
-      <MenuButton
-        title="Audio settings"
-        isOpen={isOpen}
-        onClick={() => setIsOpen((prev) => !prev)}
-      />
+    <>
       <Menu isOpen={isOpen}>
         {MENU_ITEMS.map((item) => (
           <Button
@@ -44,6 +32,20 @@ export default function Audio({ className }: Props) {
           </Button>
         ))}
       </Menu>
-    </Control>
+      <Control ref={containerRef} className={cn("group flex items-center rounded-lg", className)}>
+        <ToggleButton
+          title="Toggle audio"
+          onClick={() => setHasAudio((prev) => !prev)}
+          isActive={hasAudio}
+          activeIcon={<Mic />}
+          inactiveIcon={<MicOff />}
+        />
+        <MenuButton
+          title="Audio settings"
+          isOpen={isOpen}
+          onClick={() => setIsOpen((prev) => !prev)}
+        />
+      </Control>
+    </>
   );
 }

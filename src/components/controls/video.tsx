@@ -23,19 +23,7 @@ export default function Video({ className }: Props) {
   }
 
   return (
-    <Control ref={containerRef} className={cn("group flex items-center rounded-lg", className)}>
-      <ToggleButton
-        title="Toggle video"
-        onClick={handleClick}
-        isActive={hasVideo}
-        activeIcon={<VideoOnIcon />}
-        inactiveIcon={<VideoOff />}
-      />
-      <MenuButton
-        title="Video settings"
-        isOpen={isOpen}
-        onClick={() => setIsOpen((prev) => !prev)}
-      />
+    <>
       <Menu isOpen={isOpen}>
         {MENU_ITEMS.map((item) => (
           <Button
@@ -48,6 +36,20 @@ export default function Video({ className }: Props) {
           </Button>
         ))}
       </Menu>
-    </Control>
+      <Control ref={containerRef} className={cn("group flex items-center rounded-lg", className)}>
+        <ToggleButton
+          title="Toggle video"
+          onClick={handleClick}
+          isActive={hasVideo}
+          activeIcon={<VideoOnIcon />}
+          inactiveIcon={<VideoOff />}
+        />
+        <MenuButton
+          title="Video settings"
+          isOpen={isOpen}
+          onClick={() => setIsOpen((prev) => !prev)}
+        />
+      </Control>
+    </>
   );
 }

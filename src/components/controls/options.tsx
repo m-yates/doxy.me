@@ -16,10 +16,7 @@ export default function Options({ className }: Props) {
   const { isOpen, setIsOpen, containerRef } = useMenu();
 
   return (
-    <Control ref={containerRef} className={cn("", className)}>
-      <Button title="Options" onClick={() => setIsOpen((prev) => !prev)}>
-        <EllipsisVertical />
-      </Button>
+    <>
       <Menu isOpen={isOpen}>
         {MENU_ITEMS.map((item) => (
           <Button
@@ -32,6 +29,11 @@ export default function Options({ className }: Props) {
           </Button>
         ))}
       </Menu>
-    </Control>
+      <Control ref={containerRef} className={cn("", className)}>
+        <Button title="Options" onClick={() => setIsOpen((prev) => !prev)}>
+          <EllipsisVertical />
+        </Button>
+      </Control>
+    </>
   );
 }
