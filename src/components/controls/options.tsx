@@ -3,7 +3,7 @@ import { useMenu } from "../../hooks/use-menu";
 import { cn } from "../../lib/utils";
 import Button from "../button";
 import Control from "../control";
-import Menu from "./menu";
+import Menu from "../menu";
 
 interface Props {
   children?: React.ReactNode;
@@ -13,11 +13,11 @@ interface Props {
 const MENU_ITEMS = ["Settings", "Help", "Leave"];
 
 export default function Options({ className }: Props) {
-  const { isOpen, setIsOpen, containerRef } = useMenu();
+  const { isOpen, setIsOpen, controlRef, menuRef } = useMenu();
 
   return (
     <>
-      <Menu isOpen={isOpen}>
+      <Menu isOpen={isOpen} menuRef={menuRef}>
         {MENU_ITEMS.map((item) => (
           <Button
             title={item}
@@ -29,7 +29,7 @@ export default function Options({ className }: Props) {
           </Button>
         ))}
       </Menu>
-      <Control ref={containerRef} className={cn("", className)}>
+      <Control ref={controlRef} className={cn("", className)}>
         <Button title="Options" onClick={() => setIsOpen((prev) => !prev)}>
           <EllipsisVertical />
         </Button>

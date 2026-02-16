@@ -4,9 +4,9 @@ import { useMenu } from "../../hooks/use-menu";
 import { cn } from "../../lib/utils";
 import Button from "../button";
 import Control from "../control";
+import Menu from "../menu";
+import MenuButton from "../menu-button";
 import ToggleButton from "../toggle-button";
-import Menu from "./menu";
-import MenuButton from "./menu-button";
 
 interface Props {
   className?: string;
@@ -16,7 +16,7 @@ const MENU_ITEMS = ["Background", "Quality"];
 
 export default function Video({ className }: Props) {
   const { hasVideo, setHasVideo } = useAppStore();
-  const { isOpen, setIsOpen, containerRef } = useMenu();
+  const { isOpen, setIsOpen, controlRef, menuRef } = useMenu();
 
   function handleClick() {
     setHasVideo(!hasVideo);
@@ -24,7 +24,7 @@ export default function Video({ className }: Props) {
 
   return (
     <>
-      <Menu isOpen={isOpen}>
+      <Menu isOpen={isOpen} menuRef={menuRef}>
         {MENU_ITEMS.map((item) => (
           <Button
             title={item}
@@ -36,7 +36,7 @@ export default function Video({ className }: Props) {
           </Button>
         ))}
       </Menu>
-      <Control ref={containerRef} className={cn("group flex items-center rounded-lg", className)}>
+      <Control ref={controlRef} className={cn("group flex items-center rounded-lg", className)}>
         <ToggleButton
           title="Toggle video"
           onClick={handleClick}

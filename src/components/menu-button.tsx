@@ -1,5 +1,5 @@
 import { ChevronUp } from "lucide-react";
-import { cn } from "../../lib/utils";
+import { cn } from "../lib/utils";
 
 interface Props {
   title: string;

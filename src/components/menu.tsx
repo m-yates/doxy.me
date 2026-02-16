@@ -1,18 +1,20 @@
 import { AnimatePresence, motion } from "motion/react";
-import { ANIMATION_STATE, MENU } from "../../lib/animations";
-import { cn } from "../../lib/utils";
+import { ANIMATION_STATE, MENU } from "../lib/animations";
+import { cn } from "../lib/utils";
 
 interface Props {
   isOpen: boolean;
   children: React.ReactNode;
   className?: string;
+  menuRef?: React.RefObject<HTMLDivElement | null>;
 }
 
-export default function Menu({ isOpen, children, className }: Props) {
+export default function Menu({ isOpen, children, className, menuRef }: Props) {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          ref={menuRef}
           {...ANIMATION_STATE}
           variants={MENU}
           className={cn(

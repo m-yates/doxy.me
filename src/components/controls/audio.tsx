@@ -4,9 +4,9 @@ import { useMenu } from "../../hooks/use-menu";
 import { cn } from "../../lib/utils";
 import Button from "../button";
 import Control from "../control";
+import Menu from "../menu";
+import MenuButton from "../menu-button";
 import ToggleButton from "../toggle-button";
-import Menu from "./menu";
-import MenuButton from "./menu-button";
 
 interface Props {
   className?: string;
@@ -16,11 +16,11 @@ const MENU_ITEMS = ["Mic input", "Volume", "Acoustics"];
 
 export default function Audio({ className }: Props) {
   const [hasAudio, setHasAudio] = useState(true);
-  const { isOpen, setIsOpen, containerRef } = useMenu();
+  const { isOpen, setIsOpen, controlRef, menuRef } = useMenu();
 
   return (
     <>
-      <Menu isOpen={isOpen}>
+      <Menu isOpen={isOpen} menuRef={menuRef}>
         {MENU_ITEMS.map((item) => (
           <Button
             title={item}
@@ -32,7 +32,7 @@ export default function Audio({ className }: Props) {
           </Button>
         ))}
       </Menu>
-      <Control ref={containerRef} className={cn("group flex items-center rounded-lg", className)}>
+      <Control ref={controlRef} className={cn("group flex items-center rounded-lg", className)}>
         <ToggleButton
           title="Toggle audio"
           onClick={() => setHasAudio((prev) => !prev)}
