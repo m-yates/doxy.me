@@ -57,7 +57,7 @@ export default function Options({ className }: Props) {
             className="bg-grey-200 absolute top-0 right-0 left-0 flex translate-y-[-120%] gap-1.5 rounded-lg p-2 text-xs"
           >
             {MENU_ITEMS.map((item) => (
-              <Button onClick={onSelect} key={item} className="size-auto p-2">
+              <Button title={item} onClick={onSelect} key={item} className="size-auto p-2">
                 {item}
               </Button>
             ))}
@@ -65,7 +65,7 @@ export default function Options({ className }: Props) {
         )}
       </AnimatePresence>
       <Control ref={containerRef} className={cn("", className)}>
-        <Button onClick={handleClick}>
+        <Button title="Options" onClick={handleClick}>
           <EllipsisVertical />
         </Button>
       </Control>

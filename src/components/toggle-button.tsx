@@ -4,6 +4,7 @@ import { cn } from "../lib/utils";
 import Button from "./button";
 
 interface Props {
+  title?: string;
   activeIcon: React.ReactNode;
   inactiveIcon: React.ReactNode;
   isActive: boolean;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export default function ToggleButton({
+  title,
   activeIcon,
   inactiveIcon,
   isActive,
@@ -19,7 +21,11 @@ export default function ToggleButton({
   className
 }: Props) {
   return (
-    <Button className={cn(!isActive && "bg-red hover:bg-red", className)} onClick={onClick}>
+    <Button
+      title={title}
+      className={cn(!isActive && "bg-red hover:bg-red", className)}
+      onClick={onClick}
+    >
       <AnimatePresence mode="wait" initial={false}>
         {isActive ? (
           <motion.span key="active" {...ANIMATION_STATE} variants={ICON}>

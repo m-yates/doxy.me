@@ -18,6 +18,7 @@ export default function Video({ className }: Props) {
   return (
     <Control className={cn("", className)}>
       <ToggleButton
+        title="Toggle video"
         onClick={handleClick}
         isActive={hasVideo}
         activeIcon={<VideoOnIcon />}

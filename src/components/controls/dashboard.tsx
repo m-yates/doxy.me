@@ -11,7 +11,7 @@ interface Props {
 export default function Dashboard({ className }: Props) {
   return (
     <Control className={cn("", className)}>
-      <Button onClick={() => console.log("clicked")}>
+      <Button title="Dashboard" onClick={() => console.log("clicked")}>
         <LayoutGrid />
       </Button>
     </Control>

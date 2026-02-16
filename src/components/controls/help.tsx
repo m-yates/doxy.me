@@ -10,7 +10,7 @@ interface Props {
 export default function Help({ className }: Props) {
   return (
     <Control className={cn("", className)}>
-      <Button onClick={() => console.log("clicked")}>
+      <Button title="Help" onClick={() => console.log("clicked")}>
         <MessageCircleMore />
       </Button>
     </Control>

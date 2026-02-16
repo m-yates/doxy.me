@@ -17,7 +17,7 @@ export default function HangUp({ className }: Props) {
 
   return (
     <Control className={cn("", className)}>
-      <Button onClick={handleClick} className="bg-red hover:bg-red">
+      <Button title="Hang up" onClick={handleClick} className="bg-red hover:bg-red">
         <Phone className="rotate-135" />
       </Button>
     </Control>

@@ -10,7 +10,7 @@ interface Props {
 export default function Appearance({ className }: Props) {
   return (
     <Control className={cn("hidden md:block", className)}>
-      <Button onClick={() => console.log("clicked")}>
+      <Button title="Appearance" onClick={() => console.log("clicked")}>
         <span className="flex size-6 items-center justify-center rounded-sm border-2 border-white text-sm">
           A
         </span>

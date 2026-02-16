@@ -18,6 +18,7 @@ export default function Audio({ className }: Props) {
   return (
     <Control className={cn("", className)}>
       <ToggleButton
+        title="Toggle audio"
         onClick={handleClick}
         isActive={hasAudio}
         activeIcon={<Mic />}
