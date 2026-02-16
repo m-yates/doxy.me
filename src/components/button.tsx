@@ -10,6 +10,7 @@ interface Props {
 export default function Button({ title, children, onClick, className }: Props) {
   return (
     <button
+      aria-label={title}
       title={title}
       className={cn(
         "hover:bg-grey-100 flex size-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg transition-colors duration-250 ease-out focus:outline-white",

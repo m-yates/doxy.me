@@ -11,6 +11,7 @@ interface Props {
 export default function MenuButton({ title, isOpen, onClick, className }: Props) {
   return (
     <button
+      aria-label={title}
       title={title}
       className={cn(
         "hidden cursor-pointer items-center justify-start transition-opacity duration-250 ease-out hover:opacity-50 focus:outline-white lg:flex",

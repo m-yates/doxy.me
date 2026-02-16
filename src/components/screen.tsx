@@ -22,7 +22,7 @@ export default function Screen({ className }: ScreenProps) {
     >
       <img
         src="/screen.jpg"
-        alt="screen"
+        alt=""
         className={cn(
           "size-full object-cover transition-opacity duration-250 ease-out",
           hasVideo ? "opacity-100" : "opacity-0"
