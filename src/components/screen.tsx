@@ -24,7 +24,7 @@ export default function Screen({ className }: ScreenProps) {
         src="/screen.jpg"
         alt="screen"
         className={cn(
-          "size-full object-cover transition-opacity duration-300 ease-out",
+          "size-full object-cover transition-opacity duration-250 ease-out",
           hasVideo ? "opacity-100" : "opacity-0"
         )}
       />

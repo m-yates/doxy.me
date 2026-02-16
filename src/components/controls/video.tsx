@@ -1,8 +1,8 @@
 import { VideoOff, Video as VideoOnIcon } from "lucide-react";
-import { useAppStore } from "../hooks/use-app-store";
-import { cn } from "../lib/utils";
-import ControlItem from "./control-item";
-import ToggleButton from "./toggle-button";
+import { useAppStore } from "../../hooks/use-app-store";
+import { cn } from "../../lib/utils";
+import ControlItem from "../control-item";
+import ToggleButton from "../toggle-button";
 
 interface Props {
   className?: string;

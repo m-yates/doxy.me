@@ -1,6 +1,6 @@
-import { cn } from "../lib/utils";
-import Button from "./button";
-import ControlItem from "./control-item";
+import { cn } from "../../lib/utils";
+import Button from "../button";
+import ControlItem from "../control-item";
 
 interface Props {
   children?: React.ReactNode;

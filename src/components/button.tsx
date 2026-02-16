@@ -2,11 +2,11 @@ import { cn } from "../lib/utils";
 
 interface Props {
   children: React.ReactNode;
-  className?: string;
   onClick?: () => void;
+  className?: string;
 }
 
-export default function Button({ children, className, onClick }: Props) {
+export default function Button({ children, onClick, className }: Props) {
   return (
     <button
       className={cn(

@@ -1,8 +1,8 @@
 import { Phone } from "lucide-react";
-import { useAppStore } from "../hooks/use-app-store";
-import { cn } from "../lib/utils";
-import Button from "./button";
-import ControlItem from "./control-item";
+import { useAppStore } from "../../hooks/use-app-store";
+import { cn } from "../../lib/utils";
+import Button from "../button";
+import ControlItem from "../control-item";
 
 interface Props {
   className?: string;
