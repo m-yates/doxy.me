@@ -12,7 +12,7 @@ export default function Button({ title, children, onClick, className }: Props) {
     <button
       title={title}
       className={cn(
-        "hover:bg-grey-100 flex size-11 cursor-pointer items-center justify-center overflow-hidden rounded-lg transition-colors duration-250 ease-out",
+        "hover:bg-grey-100 flex size-11 cursor-pointer items-center justify-center overflow-hidden rounded-lg transition-colors duration-250 ease-out focus:outline-white",
         className
       )}
       onClick={onClick}
