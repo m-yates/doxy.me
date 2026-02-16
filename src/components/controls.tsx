@@ -23,7 +23,7 @@ export default function Controls({ children, className }: Props) {
       variants={CONTROLS}
       onAnimationComplete={handleAnimationComplete}
       className={cn(
-        "bg-grey-200 relative mx-auto mt-auto flex items-center justify-center gap-7 rounded-lg p-2",
+        "bg-grey-200 relative mx-auto mt-auto flex items-center justify-center gap-3 rounded-2xl p-2",
         className
       )}
     >

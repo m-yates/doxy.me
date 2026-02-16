@@ -16,7 +16,7 @@ export default function Screen({ className }: ScreenProps) {
       {...ANIMATION_STATE}
       variants={SCREEN}
       className={cn(
-        "bg-grey-200 grid-pile mx-auto max-w-[1000px] overflow-hidden rounded-lg",
+        "bg-grey-200 grid-pile mx-auto max-w-[1000px] overflow-hidden rounded-2xl",
         className
       )}
     >
