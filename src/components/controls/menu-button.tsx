@@ -13,7 +13,7 @@ export default function MenuButton({ title, isOpen, onClick, className }: Props)
     <button
       title={title}
       className={cn(
-        "flex cursor-pointer items-center justify-start transition-opacity duration-250 ease-out hover:opacity-50 focus:outline-white",
+        "hidden cursor-pointer items-center justify-start transition-opacity duration-250 ease-out hover:opacity-50 focus:outline-white lg:flex",
         className
       )}
       onClick={onClick}

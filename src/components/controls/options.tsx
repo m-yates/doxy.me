@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-const MENU_ITEMS = ["Settings", "Report an issue"];
+const MENU_ITEMS = ["Settings", "Help", "Leave"];
 
 export default function Options({ className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,17 +39,22 @@ export default function Options({ className }: Props) {
   }, [isMenuOpen]);
 
   return (
-    <Control className={cn("", className)}>
+    <Control ref={containerRef} className={cn("", className)}>
+      <Button title="Options" onClick={() => setIsMenuOpen((prev) => !prev)}>
+        <EllipsisVertical />
+      </Button>
       <Menu isOpen={isMenuOpen}>
         {MENU_ITEMS.map((item) => (
-          <Button title={item} onClick={close} key={item} className="size-auto p-2">
+          <Button
+            title={item}
+            onClick={() => setIsMenuOpen(false)}
+            key={item}
+            className="size-auto p-2"
+          >
             {item}
           </Button>
         ))}
       </Menu>
-      <Button title="Options" onClick={() => setIsMenuOpen((prev) => !prev)}>
-        <EllipsisVertical />
-      </Button>
     </Control>
   );
 }

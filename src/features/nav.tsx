@@ -10,7 +10,7 @@ export default function Nav({ className }: Props) {
   const { currentUser, setCurrentUser } = useAppStore();
 
   return (
-    <nav className={cn("flex items-center justify-end gap-5", className)}>
+    <nav className={cn("flex items-center justify-end gap-4", className)}>
       <button
         onClick={() => setCurrentUser(null)}
         className="mr-auto cursor-pointer font-bold outline-offset-6 focus:outline-white"

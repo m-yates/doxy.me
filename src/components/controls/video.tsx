@@ -12,7 +12,7 @@ interface Props {
   className?: string;
 }
 
-const MENU_ITEMS = ["Settings", "Report an issue"];
+const MENU_ITEMS = ["Background", "Quality"];
 
 export default function Video({ className }: Props) {
   const { hasVideo, setHasVideo } = useAppStore();
@@ -61,7 +61,12 @@ export default function Video({ className }: Props) {
       />
       <Menu isOpen={isMenuOpen}>
         {MENU_ITEMS.map((item) => (
-          <Button title={item} onClick={close} key={item} className="size-auto p-2">
+          <Button
+            title={item}
+            onClick={() => setIsMenuOpen(false)}
+            key={item}
+            className="size-auto p-2"
+          >
             {item}
           </Button>
         ))}

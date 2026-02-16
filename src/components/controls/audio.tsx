@@ -11,7 +11,7 @@ interface Props {
   className?: string;
 }
 
-const MENU_ITEMS = ["Settings", "Report an issue"];
+const MENU_ITEMS = ["Mic input", "Volume", "Acoustics"];
 
 export default function Audio({ className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);

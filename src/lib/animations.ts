@@ -45,14 +45,13 @@ export const CONTROLS: Variants = {
 };
 
 export const CONTROL: Variants = {
-  initial: { scale: 0, opacity: 0, y: "50%" },
+  initial: { opacity: 0, y: "50%" },
   animate: {
-    scale: 1,
     opacity: 1,
     y: 0,
     transition: { duration: DURATION_SLOW, ease: EASE_ANIMATE }
   },
-  exit: { scale: 0, opacity: 0, y: "50%", transition: { duration: DURATION_SLOW, ease: EASE_EXIT } }
+  exit: { opacity: 0, y: "50%", transition: { duration: DURATION_SLOW, ease: EASE_EXIT } }
 };
 
 export const ICON: Variants = {
