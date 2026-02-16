@@ -1,6 +1,7 @@
 import { MessageCircleMore } from "lucide-react";
 import { cn } from "../lib/utils";
 import Button from "./button";
+import ControlItem from "./control-item";
 
 interface Props {
   className?: string;
@@ -8,10 +9,10 @@ interface Props {
 
 export default function Help({ className }: Props) {
   return (
-    <div className={cn("", className)}>
+    <ControlItem className={cn("", className)}>
       <Button onClick={() => console.log("clicked")}>
         <MessageCircleMore />
       </Button>
-    </div>
+    </ControlItem>
   );
 }

@@ -7,7 +7,7 @@ import Options from "../components/options";
 import Screen from "../components/screen";
 import Video from "../components/video";
 
-export default function Patient() {
+export default function Provider() {
   return (
     <>
       <Screen />

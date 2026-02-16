@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useAppStore } from "../hooks/use-app-store";
-import { ANIMATION_STATE, TOGGLE_CONTROLS } from "../lib/animations";
+import { ANIMATION_STATE, CONTROLS } from "../lib/animations";
 import { cn } from "../lib/utils";
 
 interface Props {
@@ -20,7 +20,7 @@ export default function Controls({ children, className }: Props) {
   return (
     <motion.div
       {...ANIMATION_STATE}
-      variants={TOGGLE_CONTROLS}
+      variants={CONTROLS}
       onAnimationComplete={handleAnimationComplete}
       className={cn(
         "bg-grey-200 mx-auto mt-auto flex items-center justify-center gap-2 rounded-lg p-2",

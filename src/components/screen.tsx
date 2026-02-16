@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useAppStore } from "../hooks/use-app-store";
-import { ANIMATION_STATE, TOGGLE_SCREEN } from "../lib/animations";
+import { ANIMATION_STATE, SCREEN } from "../lib/animations";
 import { cn } from "../lib/utils";
 
 interface ScreenProps {
@@ -14,18 +14,19 @@ export default function Screen({ className }: ScreenProps) {
     <motion.div
       key="screen"
       {...ANIMATION_STATE}
-      variants={TOGGLE_SCREEN}
+      variants={SCREEN}
       className={cn(
         "bg-grey-200 grid-pile mx-auto max-w-[1000px] overflow-hidden rounded-lg",
         className
       )}
     >
-      <motion.img
-        animate={hasVideo ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
+      <img
         src="/screen.jpg"
         alt="screen"
-        className="size-full object-cover opacity-0"
+        className={cn(
+          "size-full object-cover transition-opacity duration-300 ease-out",
+          hasVideo ? "opacity-100" : "opacity-0"
+        )}
       />
     </motion.div>
   );

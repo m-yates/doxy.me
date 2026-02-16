@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import { ANIMATION_STATE, TOGGLE_ICON } from "../lib/animations";
+import { ANIMATION_STATE, ICON_TOGGLE } from "../lib/animations";
 import { cn } from "../lib/utils";
 import Button from "./button";
 
@@ -22,11 +22,11 @@ export default function ToggleButton({
     <Button className={cn(!isActive && "bg-red hover:bg-red", className)} onClick={onClick}>
       <AnimatePresence mode="wait" initial={false}>
         {isActive ? (
-          <motion.span key="active" {...ANIMATION_STATE} variants={TOGGLE_ICON}>
+          <motion.span key="active" {...ANIMATION_STATE} variants={ICON_TOGGLE}>
             {activeIcon}
           </motion.span>
         ) : (
-          <motion.span key="inactive" {...ANIMATION_STATE} variants={TOGGLE_ICON}>
+          <motion.span key="inactive" {...ANIMATION_STATE} variants={ICON_TOGGLE}>
             {inactiveIcon}
           </motion.span>
         )}
