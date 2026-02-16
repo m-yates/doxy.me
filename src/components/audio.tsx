@@ -13,6 +13,7 @@ export default function Audio({ className }: Props) {
   function handleClick() {
     setHasAudio(!hasAudio);
   }
+
   return (
     <div className={cn("", className)}>
       <ToggleButton

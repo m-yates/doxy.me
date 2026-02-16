@@ -23,7 +23,7 @@ export default function Controls({ children, className }: Props) {
       variants={TOGGLE_CONTROLS}
       onAnimationComplete={handleAnimationComplete}
       className={cn(
-        "bg-grey-200 mx-auto flex items-center justify-center gap-2 rounded-lg p-2",
+        "bg-grey-200 mx-auto mt-auto flex items-center justify-center gap-2 rounded-lg p-2",
         className
       )}
     >
