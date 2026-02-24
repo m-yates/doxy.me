@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div className="flex h-screen flex-col gap-6 overflow-hidden bg-black p-4 pb-10">
       <Nav />
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait">
         {currentUser === "patient" && <Patient key="patient" />}
         {currentUser === "provider" && <Provider key="provider" />}
       </AnimatePresence>

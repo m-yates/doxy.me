@@ -8,7 +8,7 @@ interface AppStore {
 }
 
 export const useAppStore = create<AppStore>((set) => ({
-  currentUser: null,
+  currentUser: "patient",
   setCurrentUser: (user) => set({ currentUser: user }),
   hasVideo: true,
   setHasVideo: (hasVideo) => set({ hasVideo })
