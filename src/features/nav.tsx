@@ -11,13 +11,9 @@ export default function Nav({ className }: Props) {
 
   return (
     <nav className={cn("flex items-center justify-end gap-4", className)}>
-      <button
-        aria-label="Doxy.me"
-        onClick={() => setCurrentUser(null)}
-        className="mr-auto cursor-pointer font-bold outline-offset-6 focus:outline-white"
-      >
+      <h1 aria-label="Doxy.me" className="mr-auto font-bold outline-offset-6 focus:outline-white">
         Doxy.me
-      </button>
+      </h1>
       {USERS.map((user) => (
         <button
           key={user}

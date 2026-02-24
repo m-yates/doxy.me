@@ -1,1 +1,1 @@
-export const USERS = ["patient", "provider"] as const;
+export const USERS = ["patient"] as const;

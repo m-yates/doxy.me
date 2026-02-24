@@ -1,7 +1,6 @@
 import { AnimatePresence } from "motion/react";
 import Nav from "./features/nav";
 import Patient from "./features/patient";
-import Provider from "./features/provider";
 import { useAppStore } from "./hooks/use-app-store";
 
 export default function App() {
@@ -12,7 +11,6 @@ export default function App() {
       <Nav />
       <AnimatePresence mode="wait">
         {currentUser === "patient" && <Patient key="patient" />}
-        {currentUser === "provider" && <Provider key="provider" />}
       </AnimatePresence>
     </div>
   );
