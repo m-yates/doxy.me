@@ -62,6 +62,34 @@ export const ICON: Variants = {
 
 export const MENU: Variants = {
   initial: { opacity: 0, scale: 0 },
-  animate: { opacity: 1, scale: 1, transition: { duration: DURATION_MEDIUM, ease: EASE_ANIMATE } },
-  exit: { opacity: 0, scale: 0, transition: { duration: DURATION_MEDIUM, ease: EASE_EXIT } }
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: DURATION_MEDIUM,
+      ease: EASE_ANIMATE,
+      staggerChildren: STAGGER,
+      delayChildren: 0.1
+    }
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      duration: DURATION_MEDIUM,
+      ease: EASE_EXIT,
+      staggerChildren: -STAGGER,
+      when: "afterChildren"
+    }
+  }
+};
+
+export const MENU_ITEM: Variants = {
+  initial: { opacity: 0, y: "50%" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: DURATION_SLOW, ease: EASE_ANIMATE }
+  },
+  exit: { opacity: 0, y: "50%", transition: { duration: DURATION_SLOW, ease: EASE_EXIT } }
 };

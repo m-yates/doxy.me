@@ -18,7 +18,7 @@ export default function Menu({ isOpen, children, className, menuRef }: Props) {
           {...ANIMATION_STATE}
           variants={MENU}
           className={cn(
-            "bg-grey-200 absolute top-0 right-0 left-0 flex translate-y-[-120%] gap-1.5 rounded-lg p-2 text-xs",
+            "bg-grey-200 absolute top-0 left-0 flex translate-y-[-110%] flex-col gap-2 overflow-hidden rounded-lg p-4 text-sm",
             className
           )}
         >
