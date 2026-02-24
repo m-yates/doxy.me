@@ -89,7 +89,17 @@ export const MENU_ITEM: Variants = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: DURATION_SLOW, ease: EASE_ANIMATE }
+    transition: { duration: DURATION_MEDIUM, ease: EASE_ANIMATE }
   },
-  exit: { opacity: 0, y: "50%", transition: { duration: DURATION_SLOW, ease: EASE_EXIT } }
+  exit: { opacity: 0, y: "50%", transition: { duration: DURATION_MEDIUM, ease: EASE_EXIT } }
+};
+
+export const POPOVER: Variants = {
+  initial: { opacity: 0, y: "50%" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: DURATION_FAST, ease: EASE_ANIMATE }
+  },
+  exit: { opacity: 0, y: "50%", transition: { duration: DURATION_FAST, ease: EASE_EXIT } }
 };

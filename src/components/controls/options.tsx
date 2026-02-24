@@ -35,6 +35,7 @@ export default function Options({ className }: Props) {
             <motion.div key={item} variants={MENU_ITEM}>
               <Button
                 title={item}
+                hasPopover={false}
                 onClick={() => setIsOpen(false)}
                 className="size-auto w-full justify-start p-3 text-left whitespace-nowrap"
               >
