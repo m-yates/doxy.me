@@ -23,7 +23,7 @@ export default function ToggleButton({
   return (
     <Button
       title={title}
-      className={cn(!isActive && "bg-red hover:bg-red", className)}
+      className={cn(!isActive && "bg-red/30 hover:bg-red/30", className)}
       onClick={onClick}
     >
       <AnimatePresence mode="wait" initial={false}>
